@@ -1,0 +1,67 @@
+.borderBottom {
+    border-bottom: 2px solid #161695;
+}
+
+.navbar-brand{
+    font-size: 20px;
+    color: #161695;
+    font-weight: bold;
+}
+
+
+
+
+
+/* Style for active link */
+.active-link {
+    background-color: #161695;
+    /* Change to your desired color */
+    color: white !important;
+    /* Change text color for visibility */
+    border-radius: 2px;
+}
+
+/* Underline effect on hover */
+.nav-link {
+    position: relative;
+    /* Ensure positioning context for pseudo-elements */
+}
+
+.nav-link:hover::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    /* Adjust height as needed */
+    background-color: #161695;
+    /* Change to your desired underline color */
+    transition: transform 0.3s ease;
+    /* Smooth transition for transform */
+    transform: scaleX(1);
+    /* Scale in for the underline effect */
+}
+
+/* Initial state of the underline */
+.nav-link::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    /* Adjust height as needed */
+    background-color: #161695;
+    /* Change to your desired underline color */
+    transform: scaleX(0);
+    /* Start with the underline hidden */
+    transition: transform 0.3s ease;
+    /* Smooth transition for transform */
+}
+
+/* Prevents line showing under active link when hovering */
+.active-link::after {
+    transform: scaleX(1);
+    /* Show the underline fully when active */
+}

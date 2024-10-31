@@ -1,0 +1,37 @@
+<section class="container my-5 d-flex flex-column justify-content-center align-items-center">
+    <input type="text" class="w-50 form-control mt-3 mb-5" placeholder="search..." [(ngModel)]="searchTerm"
+        (input)="onSearchChange()" /> <!-- قم بإضافة هذا السطر -->
+
+
+    <!-- مؤشر التحميل -->
+    <div *ngIf="isLoading">Loading...</div>
+
+    <!-- رسالة الخطأ عند الفشل في جلب البيانات -->
+    <div *ngIf="errorMessage" class="alert alert-danger" role="alert">
+        ⚠️ Failed to load products. Please try again later.
+    </div>
+    <div class="row w-100">
+        <div class="col-md-4 my-2" *ngFor="let product of filteredProducts">
+            <!-- استخدم filteredProducts بدلاً من products -->
+            <div class="card in-card" (click)="viewProductDetails(product.id)">
+                <img [src]="product.image" class="card-img-top" [alt]="product.title" style="height:60vh;">
+                <div class="px-2 d-flex flex-column" style="height: 20vh;">
+
+                    <p class="p-0 m-0">{{ product.category }}</p>
+                    <h4 class="p-0 m-0">{{ truncateTitle(product.title) }}</h4>
+
+                    <!-- إضافة عنصر d-flex لتعبئة المساحة -->
+                    <div class="mt-auto d-flex flex-grow-1 "></div>
+
+                    <div class="mt-auto  d-flex justify-content-between align-items-center ">
+                        <p class="p-0 m-0 fs-4">{{ product.price }} LE</p>
+                        <p class="p-0 m-0"><i class="star fa-solid fa-star"></i> {{ product.rating?.rate }}</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</section>

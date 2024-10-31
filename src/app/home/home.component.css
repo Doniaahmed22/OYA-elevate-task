@@ -1,0 +1,368 @@
+/*
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box; 
+}
+
+body {
+    margin: 0; 
+}
+img {
+    width: 100%;
+}
+.home {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.home img {
+    width: auto;        
+    height: auto;       
+    max-width: 100%;    
+    max-height: 100%;  
+     display: block;     
+    margin: auto;  
+}
+
+
+
+.details-home {
+    top: 40%;
+    left: 6%;
+    width: 30%;
+}
+
+.details-home h1 {
+    font-size: 60px;
+}
+
+.fs-big {
+    font-size: 50px;
+}
+
+.in-card {
+    height: 450px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card {
+    transition: box-shadow 0.4s ease-in-out;
+}
+
+.card h5 {
+    font-size: 16px;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.in-card img {
+    width: 100%;
+    height: 300px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.nav-link {
+    color: black;
+}
+
+.nav-link.active {
+    background-color: black;
+    color: white;
+}
+
+.product-card {
+    transform: translateY(50px);
+    opacity: 0;
+    transition: all 0.5s ease-in-out;
+}
+
+.product-card.show {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+.presentation {
+    width: 100%;
+    overflow: hidden;
+}
+
+.presentation img {
+    height: 100%;
+    object-fit: cover; 
+}
+
+
+
+.brder {
+    border: 1px solid black;
+}
+
+.outer{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1!important;
+    border-radius: 50%;background-color: rgb(22, 22, 149);
+
+}
+
+.carousel-control-prev{
+    top:40%
+}
+
+.carousel-control-next{
+    top:40%
+}
+
+*/
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+/* تعيين box-sizing على جميع العناصر */
+*,
+*::before,
+*::after {
+    box-sizing: border-box; /* تأكد من أن جميع العناصر تحسب padding و border ضمن width و height */
+}
+
+body {
+    margin: 0; /* إزالة الهوامش الافتراضية */
+}
+
+img {
+    width: auto; /* يتيح للصورة استخدام عرضها الطبيعي */
+    height: auto; /* يتيح للصورة استخدام ارتفاعها الطبيعي */
+    max-width: 100%; /* يضمن أن الصورة لا تتجاوز عرض العنصر الأب */
+    max-height: 100%; /* يضمن أن الصورة لا تتجاوز ارتفاع العنصر الأب */
+}
+
+.home {
+    height: 100vh;
+    overflow: hidden;
+}
+
+.details-home {
+    top: 30%;
+    left: 6%;
+    width: 30%;
+    transform: translateX(-50%);
+    text-align: center;
+    color: black;
+    opacity: 0; /* نص مخفي في البداية */
+}
+
+.animate-text {
+    animation: slideUp 1.5s ease-out forwards; /* حركة النص عند التحميل أو التبديل */
+}
+
+@keyframes slideUp {
+    0% {
+        transform: translateY(50px); /* النص يبدأ من أسفل */
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0); /* يصل إلى موضعه النهائي */
+        opacity: 1;
+    }
+}
+
+
+.details-home h1 {
+    font-size: 60px;
+}
+
+.heading-underline {
+    position: relative;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.heading-underline::after {
+    content: "";
+    position: absolute;
+    width: 50%; /* عرض الخط بالنسبة للنص */
+    height: 3px; /* سماكة الخط */
+    background-color: black; /* لون الخط */
+    left: 25%; /* لتمركز الخط أسفل النص */
+    bottom: -5px; /* المسافة بين النص والخط */
+    transition: width 0.3s ease-in-out; /* حركة على عرض الخط عند التمرير */
+}
+
+
+
+
+.fs-big {
+    font-size: 50px;
+}
+
+.in-card {
+    height: 450px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.card {
+    transition: box-shadow 0.4s ease-in-out;
+}
+
+.card h5 {
+    font-size: 16px;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
+}
+
+.in-card img {
+    width: 100%;
+    height: 300px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+
+.nav-link {
+    color: black;
+}
+
+.nav-link.active {
+    background-color: #161695;
+    color: white;
+}
+
+.product-card {
+    transform: translateY(50px);
+    /* ابدأ من الأسفل */
+    opacity: 0;
+    /* اجعلها غير مرئية */
+    transition: all 0.5s ease-in-out;
+    /* اضف انيميشن سلس */
+}
+
+.product-card.show {
+    transform: translateY(0);
+    /* انقلها إلى مكانها الطبيعي */
+    opacity: 1;
+    /* اجعلها مرئية */
+}
+
+/* 
+.big-Container {
+    height: 800px;
+} */
+
+.presentation {
+    width: 100%;
+    /* height: 700px; */
+    overflow: hidden;
+}
+
+.presentation img {
+    height: 100%;
+    object-fit: cover; /* للتأكد من ملء الصورة بدون تشويه */
+}
+
+.pres-100vh {
+    height: 100vh;
+
+}
+
+.pres-50vh {
+    height: 50vh;
+}
+/* .pres2 {
+    height: 290px;
+}
+
+.pres3 {
+    height: 450px;
+} */
+
+.brder {
+    border: 1px solid black;
+}
+
+.outer{
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    opacity: 1!important;
+    border-radius: 50%;background-color: rgb(22, 22, 149);
+}
+
+.carousel-control-prev{
+    top:40%;
+}
+
+.carousel-control-next{
+    top:40%;
+}
+
+.bg-gray{
+    background-color: rgb(223, 223, 223);
+}
+
+.bg-yellow{
+    background-color: rgb(223, 223, 223);
+}
+
+.outer-icon{
+    width: 60px;
+    height: 60px;
+    margin-bottom: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    background-color: white;
+    transition: background-color 1s ease-in;
+}
+
+.outer-icon:hover{
+    background-color: rgb(180, 180, 180);
+}
+
+.star{
+    color: rgb(255, 225, 0);
+    font-size: 20px;
+}
+
+.item-in-carousel{
+    height: 60vh;
+    overflow: hidden;
+}
+
+
+.outIcon{
+    width: 50px;
+    height: 50px;
+    border: 0.5px solid rgb(223, 223, 223);
+    border-radius:50%;
+    transition: background-color 0.3s ease-in;
+}
+
+.outIcon:hover{
+    background-color: rgb(223, 223, 223);
+}
+
+.outIcon i{
+    font-size: 20px;
+}
+
+.footer{
+    background-color: #000000;
+    color: white;
+}
